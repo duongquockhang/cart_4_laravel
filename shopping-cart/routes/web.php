@@ -14,9 +14,7 @@ use App\Http\Controllers\ProductsController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 Route::get('/', [ProductsController::class, 'index'])->name('order.orderDetail');
 Route::get('cart', [ProductsController::class, 'cart']);
@@ -25,3 +23,9 @@ Route::get('add-to-cart/{id}', [ProductsController::class, 'addToCart']);
 
 Route::patch('update-cart', [ProductsController::class, 'update']);
 Route::delete('remove-from-cart', [ProductsController::class, 'remove']);
+
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
